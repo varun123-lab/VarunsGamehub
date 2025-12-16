@@ -182,6 +182,7 @@ class PongGame {
         this.paddleWidth = 10;
         this.paddleHeight = 80;
         this.ballSize = 10;
+        this.SPEED_INCREASE_FACTOR = 1.05;
         
         this.leftPaddle = { x: 20, y: 160, dy: 0 };
         this.rightPaddle = { x: 370, y: 160, dy: 0 };
@@ -216,14 +217,14 @@ class PongGame {
             this.ball.y >= this.leftPaddle.y &&
             this.ball.y <= this.leftPaddle.y + this.paddleHeight) {
             this.ball.dx *= -1;
-            this.ball.dx *= 1.05;
+            this.ball.dx *= this.SPEED_INCREASE_FACTOR;
         }
 
         if (this.ball.x >= this.rightPaddle.x - this.ballSize &&
             this.ball.y >= this.rightPaddle.y &&
             this.ball.y <= this.rightPaddle.y + this.paddleHeight) {
             this.ball.dx *= -1;
-            this.ball.dx *= 1.05;
+            this.ball.dx *= this.SPEED_INCREASE_FACTOR;
         }
 
         // Score points
@@ -343,10 +344,8 @@ function initGame(gameType) {
     
     document.getElementById('score').textContent = 'Score: 0';
     
-    // Set up keyboard controls
-    document.removeEventListener('keydown', handleKeyDown);
+    // Set up keyboard controls (cleanup handled in stopGame)
     document.addEventListener('keydown', handleKeyDown);
-    document.removeEventListener('keyup', handleKeyUp);
     document.addEventListener('keyup', handleKeyUp);
 }
 

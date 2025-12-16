@@ -126,6 +126,16 @@ function showNotification(message) {
                 opacity: 1;
             }
         }
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
     `;
     document.head.appendChild(style);
     
@@ -133,7 +143,7 @@ function showNotification(message) {
     
     // Remove notification after 3 seconds
     setTimeout(() => {
-        notification.style.animation = 'slideInRight 0.3s ease-out reverse';
+        notification.style.animation = 'slideOutRight 0.3s ease-out';
         setTimeout(() => {
             notification.remove();
         }, 300);
