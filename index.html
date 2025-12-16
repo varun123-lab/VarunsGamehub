@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varun's Game Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>🎮 Varun's Game Hub</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h2>Welcome to the Ultimate Game Hub</h2>
+                <p>Play awesome HTML5 games right in your browser!</p>
+                <button class="cta-button" onclick="scrollToGames()">Play Now</button>
+            </div>
+        </section>
+
+        <section id="games" class="games-section">
+            <h2 class="section-title">Featured Games</h2>
+            <div class="games-grid">
+                <!-- MacVG Game Card -->
+                <div class="game-card">
+                    <div class="game-thumbnail" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Snake Game</h3>
+                        <p>Classic snake game with modern graphics</p>
+                        <button class="play-button" onclick="loadGame('snake')">Play Now</button>
+                    </div>
+                </div>
+
+                <!-- Additional Game Cards -->
+                <div class="game-card">
+                    <div class="game-thumbnail" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Pong Classic</h3>
+                        <p>Retro arcade pong game</p>
+                        <button class="play-button" onclick="loadGame('pong')">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-thumbnail" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Breakout</h3>
+                        <p>Classic brick breaker game</p>
+                        <button class="play-button" onclick="loadGame('breakout')">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-thumbnail" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Flappy Bird</h3>
+                        <p>Navigate through obstacles</p>
+                        <button class="play-button" onclick="loadGame('flappy')">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-thumbnail" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Tetris</h3>
+                        <p>Arrange falling blocks</p>
+                        <button class="play-button" onclick="loadGame('tetris')">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-thumbnail" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Space Invaders</h3>
+                        <p>Defend against alien invasion</p>
+                        <button class="play-button" onclick="loadGame('space')">Play Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2>About Varun's Game Hub</h2>
+                <p>A collection of classic and modern HTML5 games built with JavaScript and Canvas API. All games are free to play and run directly in your browser without any downloads or installations.</p>
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">🎯</span>
+                        <h3>Free to Play</h3>
+                        <p>All games are completely free</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📱</span>
+                        <h3>Responsive Design</h3>
+                        <p>Play on any device</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">⚡</span>
+                        <h3>Fast Loading</h3>
+                        <p>Instant game loading</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGame()">&times;</span>
+            <div id="gameContainer">
+                <canvas id="gameCanvas"></canvas>
+                <div id="gameControls">
+                    <div id="score">Score: 0</div>
+                    <button class="control-button" onclick="restartGame()">Restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Varun's Game Hub. Built with HTML5, CSS3, and JavaScript.</p>
+    </footer>
+
+    <script src="game.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
